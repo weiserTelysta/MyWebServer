@@ -1,0 +1,13 @@
+  version: '3.8'
+
+  services:
+    web-mysql:
+      image: mysql:5.7
+      container_name: web_mysql_server
+      ports:
+        - "3307:3306"
+      environment:
+        MYSQL_ROOT_PASSWORD: root
+        MYSQL_DATABASE: webdb
+      command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci # 统一字符集，防止中文乱码
+      restart: always
